@@ -4,7 +4,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "/home/user/Workspace/git/cms/src/manage.py",
+            "program": "/home/user/Workspace/git/cms/manage.py",
             "args": [
                 "runserver"
             ],

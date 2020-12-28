@@ -9,11 +9,15 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
-from pathlib import Path
+import os  # +
+import sys  # +
+# from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent # -
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # +
+sys.path.insert(0, os.path.join(BASE_DIR, '..'))  # +
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,13 +28,18 @@ SECRET_KEY = 's=@sf_3ft)mx^8&n#82xa0f+9yh95z)x*c^zq4u%6ql4vlk5d&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+TEMPLATE_DEBUG = True  #+
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
+SITE_ID = 2
 
 # Application definition
 
 INSTALLED_APPS = [
+    'cms.apps.CmsConfig',
+
+    'django.contrib.sites',  # +
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',  # +
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -54,7 +64,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # +
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,6 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # +
+                'django.template.context_processors.static',  # +
             ],
         },
     },
@@ -76,7 +88,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -103,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -118,3 +130,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CMS = {
+    'adminpanel': {
+        'admin_site': 'config.admin.admin',
+        'title': 'Django admin panel',
+        'menu': {
+            'top': 'cms.services.BasicTopMenu',
+            'left': 'cms.services.BasicLeftMenu',
+        },
+        'dashboard': {
+            'breadcrumbs': True,
+        },
+        'custom_style': STATIC_URL + 'cms/css/themes/sunrise.css',
+    },
+    'userpanel': {
+        'admin_site': 'config.admin.user',
+        'title': 'Django user panel',
+        'menu': {
+            'top': 'cms.services.UserTopMenu',
+            'left': 'config.admin.UserLeftMenu',
+        },
+        'dashboard': {
+            'breadcrumbs': False,
+        },
+        'custom_style': STATIC_URL + 'cms/css/themes/user.css',
+    },
+}
