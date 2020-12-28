@@ -3,25 +3,25 @@
 {% if is_user_allowed and not item.is_empty and not item.is_user_tools %}
     <li class="
         {% if is_first %}
-            wp-first-item
+            cms-first-item
         {% endif %}
         {% if is_last %}
-            wp-last-item
+            cms-last-item
         {% endif %}
         {% if not item.enabled %}
-            wp-disabled
+            cms-disabled
         {% endif %}
         {% if is_selected %}
-            wp-current
+            cms-current
         {% endif %}
         {% if not item.url %} 
-            wp-no-url
+            cms-no-url
         {% endif %}
         {% if item.children %}
-            wp-has-submenu
+            cms-has-submenu
         {% else %}
             {% if item.add_url %}
-                wp-has-add-url
+                cms-has-add-url
             {% endif %}
         {% endif %}"
         {% if item.css_styles %}
@@ -41,20 +41,20 @@
             {% endif %}
             class="
                 {% if request.path == item.url %}
-                    wp-current
+                    cms-current
                 {% endif %}">
             {{ item.title }}
         </a>
         {% if not item.children and item.add_url %}
-            <a title="{% trans "Add" %}" class="wp-add-url
+            <a title="{% trans "Add" %}" class="cms-add-url
                 {% if request.path == item.add_url %}
-                    wp-current
+                    cms-current
                 {% endif %}" href="{{ item.add_url }}">+</a>
         {% endif %}
         {% if item.children and item.enabled %}
-        <div class="wp-submenu">
-            <div class="wp-submenu-wrap">
-                <div class="wp-submenu-head">{{ item.title }}</div>
+        <div class="cms-submenu">
+            <div class="cms-submenu-wrap">
+                <div class="cms-submenu-head">{{ item.title }}</div>
                 <ul>
                     {% for child_item in item.children %}
                         {% render_menu_item child_item forloop.first forloop.last %}

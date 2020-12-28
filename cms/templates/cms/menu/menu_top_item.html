@@ -1,34 +1,34 @@
 {% load i18n %}{% load cms_menu_tags %}
 {% spaceless %}
 {% if is_user_allowed and not item.is_empty %}
-    <li class="wp-menu-top
+    <li class="cms-menu-top
         {% if is_first %}
-            wp-menu-top-first
+            cms-menu-top-first
         {% endif %}
         {% if is_last %}
-            wp-menu-top-last
+            cms-menu-top-last
         {% endif %}
         {% if item.children %}
-            wp-has-submenu
+            cms-has-submenu
         {% endif %}
         {% if not item.enabled %}
-            wp-disabled
+            cms-disabled
         {% endif %}
         {% if not item.url %}
-            wp-no-url
+            cms-no-url
         {% endif %}
         {% if is_selected %}
-            wp-menu-open
+            cms-menu-open
         {% else %}
-            wp-menu-not-open
+            cms-menu-not-open
         {% endif %}
         {% if item.add_url %}
-            wp-has-add-url
+            cms-has-add-url
         {% endif %}" 
         {% if item.css_styles %}
             style="{{ item.css_styles }}"
         {% endif %}>
-        <div class="wp-menu-image">
+        <div class="cms-menu-image">
             <a aria-label="{{ item.title }}"
                 title="{{ item.description|default:'' }}"
                 href="
@@ -56,17 +56,17 @@
         </a>
         {% if item.add_url %}
             <a title="{% trans "Add" %}" 
-               class="wp-add-url
+               class="cms-add-url
                     {% if request.path == item.add_url %} 
-                        wp-current
+                        cms-current
                     {% endif %}"
                href="{{ item.add_url }}">+
             </a>
         {% endif %}
         {% if item.children and item.enabled %}
-        <div class="wp-submenu">
-            <div class="wp-submenu-wrap">
-                <div class="wp-submenu-head">{{ item.title }}</div>
+        <div class="cms-submenu">
+            <div class="cms-submenu-wrap">
+                <div class="cms-submenu-head">{{ item.title }}</div>
                 <ul>
                     {% for child_item in item.children %}
                         {% render_menu_item child_item forloop.first forloop.last %}

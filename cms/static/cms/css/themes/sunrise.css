@@ -11,98 +11,98 @@ body.login {
     background-color: #cf4944
 }
 
-#adminmenu .wp-menu-top.wp-menu-open>a:after,
-#adminmenu .wp-menu-top.wp-menu-open .wp-menu-image a:after {
+#adminmenu .cms-menu-top.cms-menu-open>a:after,
+#adminmenu .cms-menu-top.cms-menu-open .cms-menu-image a:after {
     border-right-color: #f1f1f1
 }
 
-.wp-menu a {
+.cms-menu a {
     color: #fff
 }
 
-.wp-menu a:hover {
+.cms-menu a:hover {
     color: #fff
 }
 
-.wp-menu .wp-menu-image a {
+.cms-menu .cms-menu-image a {
     color: #fff
 }
 
-.wp-menu .wp-menu-image a:hover {
+.cms-menu .cms-menu-image a:hover {
     color: #fff
 }
 
-.wp-menu .wp-menu-top.wp-menu-not-open:hover>a {
+.cms-menu .cms-menu-top.cms-menu-not-open:hover>a {
     color: #fff;
     background-color: #dd823b
 }
 
-.wp-menu .wp-menu-top.wp-menu-not-open:hover .wp-menu-image a {
+.cms-menu .cms-menu-top.cms-menu-not-open:hover .cms-menu-image a {
     color: #fff;
     background-color: #dd823b
 }
 
-.wp-menu .wp-menu-top.wp-menu-not-open:hover.wp-has-submenu:after {
+.cms-menu .cms-menu-top.cms-menu-not-open:hover.cms-has-submenu:after {
     border-right-color: #be3631
 }
 
-.wp-menu .wp-menu-top.wp-menu-open>a,
-.wp-menu .wp-menu-top.wp-menu-open .wp-menu-image a {
+.cms-menu .cms-menu-top.cms-menu-open>a,
+.cms-menu .cms-menu-top.cms-menu-open .cms-menu-image a {
     color: #fff;
     background: #dd823b
 }
 
-.wp-menu .wp-menu-top.wp-menu-open .wp-submenu .wp-submenu-head {
+.cms-menu .cms-menu-top.cms-menu-open .cms-submenu .cms-submenu-head {
     background: #dd823b
 }
 
-.wp-menu .wp-submenu .wp-submenu-wrap {
+.cms-menu .cms-submenu .cms-submenu-wrap {
     background-color: #be3631
 }
 
-.wp-menu .wp-submenu .wp-submenu-head {
+.cms-menu .cms-submenu .cms-submenu-head {
     color: #f0c8c6
 }
 
-.wp-menu .wp-submenu a {
+.cms-menu .cms-submenu a {
     color: #f0c8c6
 }
 
-.wp-menu .wp-submenu a:hover {
+.cms-menu .cms-submenu a:hover {
     color: #f7e3d3
 }
 
-.wp-menu .wp-submenu a.wp-current {
+.cms-menu .cms-submenu a.cms-current {
     color: #fff
 }
 
-.wp-menu .wp-menu-tools>a {
+.cms-menu .cms-menu-tools>a {
     color: #cf4944
 }
 
-.wp-menu .wp-menu-tools:hover>a {
+.cms-menu .cms-menu-tools:hover>a {
     color: #fff
 }
 
-.wp-menu .wp-user-tools img.wp-small-gravatar {
+.cms-menu .cms-user-tools img.cms-small-gravatar {
     background: #fff
 }
 
-.wp-menu .wp-user-tools:hover img.wp-small-gravatar {
+.cms-menu .cms-user-tools:hover img.cms-small-gravatar {
     background: #fff
 }
 
-#adminbar .wp-menu-top.wp-menu-not-open:hover>a {
+#adminbar .cms-menu-top.cms-menu-not-open:hover>a {
     background-color: #be3631;
     color: #f7e3d3
 }
 
-#adminbar .wp-menu-top.wp-menu-not-open:hover .wp-menu-image a {
+#adminbar .cms-menu-top.cms-menu-not-open:hover .cms-menu-image a {
     background-color: #be3631;
     color: #f7e3d3
 }
 
-#adminbar .wp-menu-top.wp-menu-not-open:hover.wp-has-submenu:after {
+#adminbar .cms-menu-top.cms-menu-not-open:hover.cms-has-submenu:after {
     display: none
 }
 

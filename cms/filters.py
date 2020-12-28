@@ -35,7 +35,7 @@ def filter_models(context, models, exclude):
                 model, perms = item
                 if fnmatch(full_name(model), pattern) and item not in included:
                     included.append(item)
- 
+
     result = included[:]
     for pattern in exclude:
         for item in included:

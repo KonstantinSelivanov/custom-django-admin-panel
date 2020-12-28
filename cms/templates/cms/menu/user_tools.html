@@ -1,29 +1,29 @@
 {% load i18n %}{% load cms_menu_tags %}{% load static %}
 {% if is_user_allowed %}
-    <li class="wp-user-tools wp-menu-top wp-has-submenu wp-menu-not-open
+    <li class="cms-user-tools cms-menu-top cms-has-submenu cms-menu-not-open
         {% if is_first %} 
-            wp-first-item
+            cms-first-item
         {% endif %}
         {% if is_last %} 
-            wp-last-item
+            cms-last-item
         {% endif %}" 
         {% if item.css_styles %}
             style="{{ item.css_styles }}"
         {% endif %}>
 
-        <div class="wp-menu-image">
+        <div class="cms-menu-image">
             <a href="javascript:;">
-                <img class="wp-small-gravatar" src="{% static "cms/images/avatar16.png" %}" width="16" height="16" />
+                <img class="cms-small-gravatar" src="{% static "cms/images/avatar16.png" %}" width="16" height="16" />
             </a>
         </div>
         <a href="javascript:;">
             {% trans 'Welcome,' %} <strong>{% firstof user.get_short_name user.get_username %}</strong>.
         </a>
-        <div class="wp-submenu">
-            <div class="wp-submenu-wrap">
+        <div class="cms-submenu">
+            <div class="cms-submenu-wrap">
                 <ul>
                     <li {% if not item.url %}
-                            class="wp-no-url"
+                            class="cms-no-url"
                         {% endif %}>
                         <a href="
                             {% if item.url %}
@@ -32,7 +32,7 @@
                                 javascript:;
                             {% endif%}">
                             {% firstof user.first_name user.username %} 
-                            <img class="wp-big-gravatar" src="{% static "cms/images/avatar64.png" %}" width="64" height="64" />
+                            <img class="cms-big-gravatar" src="{% static "cms/images/avatar64.png" %}" width="64" height="64" />
                         </a>
                     </li>
                     {% if user.has_usable_password %}

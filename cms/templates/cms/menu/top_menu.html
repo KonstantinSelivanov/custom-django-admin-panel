@@ -1,7 +1,7 @@
 {% load cms_menu_tags %}
 <div id="adminbarwrap">
     {% if is_user_allowed and menu.children %}
-        <ul id="adminbar" class="wp-menu">
+        <ul id="adminbar" class="cms-menu">
              {% for item in menu.children %}
                 {% if item.is_user_tools %}
                     {% render_user_tools item forloop.first forloop.last %}
