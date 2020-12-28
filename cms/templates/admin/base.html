@@ -5,7 +5,7 @@
 <head>
     {# CMS start #}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viecmsort" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {# CMS end #}
     <title>{% block title %}{% endblock title%}</title>
     <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
@@ -16,9 +16,9 @@
     
     <link rel="stylesheet" type="text/css" href="{% static "cms/css/cms.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "cms/css/themes/default.css" %}" />
-    <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/cms.less" %}" />
-    <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/themes/default/theme.less" %}" />
-    <script type="text/javascript" src="{% static "cms/js/lib/less.min.js" %}"></script>
+    {% comment %} <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/cms.less" %}" /> {% endcomment %}
+    {% comment %} <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/themes/default/theme.less" %}" /> {% endcomment %}
+    {% comment %} <script type="text/javascript" src="{% static "cms/js/lib/less.min.js" %}"></script> {% endcomment %}
     {% comment %} {% with WPADMIN_DEV=0 %}
         {% if WPADMIN_DEV %}
             <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/cms.less" %}" />
@@ -34,7 +34,7 @@
 
     {% autoescape off %}{% render_custom_style %}{% endautoescape %}
     {% comment %} <link type="text/css" rel="stylesheet" href="/static/cms/css/themes/sunrise.css" /> {% endcomment %}
-    {% block cmsadmin_extrastyle %}{% endblock cmsadmin_extrastyle %}
+    {% block cms_extrastyle %}{% endblock cms_extrastyle %}
     {# CMS end #}
     <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
     <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>

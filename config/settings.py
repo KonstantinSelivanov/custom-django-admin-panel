@@ -147,7 +147,7 @@ CMS = {
         'dashboard': {
             'breadcrumbs': True,
         },
-        'custom_style': STATIC_URL + 'cms/css/themes/sunrise.css',
+        'custom_style': STATIC_URL + 'cms/css/themes/blue.css',
     },
     'userpanel': {
         'admin_site': 'config.admin.user',
