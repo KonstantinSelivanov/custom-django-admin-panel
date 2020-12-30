@@ -1,5 +1,5 @@
-{% comment %} {% extends "cms:adminpanel/base.html" %} {% endcomment %}
-{% load i18n %}{% load static %}{% load cms_tags %}{% load cms_menu_tags %}<!DOCTYPE html>
+{% load i18n %}
+{% load static %}{% load cms_tags %}{% load cms_menu_tags %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:"ru" }}">
 <head>
@@ -16,8 +16,24 @@
     
     <link rel="stylesheet" type="text/css" href="{% static "cms/css/cms.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "cms/css/themes/default.css" %}" />
+    {% comment %} <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/cms.less" %}" /> {% endcomment %}
+    {% comment %} <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/themes/default/theme.less" %}" /> {% endcomment %}
+    {% comment %} <script type="text/javascript" src="{% static "cms/js/lib/less.min.js" %}"></script> {% endcomment %}
+    {% comment %} {% with WPADMIN_DEV=0 %}
+        {% if WPADMIN_DEV %}
+            <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/cms.less" %}" />
+            <link rel="stylesheet/less" type="text/css" href="{% static "cms/less/themes/default/theme.less" %}" />
+            <script type="text/javascript">less = {env: "development"};</script>
+            <script type="text/javascript" src="{% static "cms/js/lib/less.min-4.0.0.js" %}"></script>
+        {% else %}
+            <link rel="stylesheet" type="text/css" href="{% static "cms/css/cms.css" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "cms/css/themes/default.css" %}" />
+            <script type="text/javascript" src="{% static "cms/js/lib/less.min-4.0.0.js" %}"></script>
+        {% endif %}
+    {% endwith %} {% endcomment %}
 
     {% autoescape off %}{% render_custom_style %}{% endautoescape %}
+    {% comment %} <link type="text/css" rel="stylesheet" href="/static/cms/css/themes/sunrise.css" /> {% endcomment %}
     {% block cms_extrastyle %}{% endblock cms_extrastyle %}
     {# CMS end #}
     <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>

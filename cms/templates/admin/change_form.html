@@ -46,7 +46,7 @@
             {% if change %}
                 {% if not is_popup %}
                     <ul class="object-tools">
-                    {% block object-tools-items %}
+                        {% block object-tools-items %}
                         <li>
                             {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
                             <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "History" %}</a>
@@ -56,7 +56,7 @@
                                 <a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a>
                             </li>
                         {% endif %}
-                    {% endblock object-tools-items %}
+                        {% endblock object-tools-items %}
                     </ul>
                 {% endif %}
             {% endif %}

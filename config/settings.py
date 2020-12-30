@@ -17,7 +17,15 @@ import sys  # +
 # BASE_DIR = Path(__file__).resolve().parent.parent # -
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # +
-sys.path.insert(0, os.path.join(BASE_DIR, '..'))  # +
+# sys.path.insert(0, os.path.join(BASE_DIR, '..'))  # +
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#+
+# PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+#                             os.pardir) + '/cms/'
+                            #  + '/config/'
+
+# PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+# sys.path.insert(0, os.path.dirname(PROJECT_PATH))
 
 
 # Quick-start development settings - unsuitable for production
@@ -64,9 +72,16 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # +
-        'APP_DIRS': True,
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],  # +
+        'DIRS': [os.path.join(BASE_DIR, 'cms/templates'),],
+        # 'APP_DIRS': True,
         'OPTIONS': {
+            # 'debug': DEBUG,
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'cms.template.Loader',
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -78,6 +93,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -129,6 +146,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, '/cms/static')
 STATIC_URL = '/static/'
 
 
@@ -157,7 +175,7 @@ CMS = {
             'left': 'config.admin.UserLeftMenu',
         },
         'dashboard': {
-            'breadcrumbs': False,
+            'breadcrumbs': True,
         },
         'custom_style': STATIC_URL + 'cms/css/themes/user.css',
     },

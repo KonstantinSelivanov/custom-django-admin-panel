@@ -60,6 +60,7 @@
 {% endblock content_title %}
 
 {% block content %}
+<div id="content-main">
     {% block object-tools %}
         <ul class="list-tools">
         {% if has_add_permission %}
@@ -71,7 +72,11 @@
         {% block object-tools-items %}{% endblock object-tools-items %}
         </ul>
     {% endblock object-tools %}
-    <div id="content-main">
+    {% block search %}
+        {% search_form cl %}
+    {% endblock search %}
+
+    
         {% if cl.formset.errors %}
             <p class="errornote">
             {% if cl.formset.total_error_count == 1 %}
@@ -82,15 +87,10 @@
             </p>
             {{ cl.formset.non_form_errors }}
         {% endif %}
-        <div class="module
-            {% if cl.has_filters %} 
-                filtered
-            {% endif %}" id="changelist">
-            {% block search %}
-                {% search_form cl %}
-            {% endblock search %}
+        <div class="module {% if cl.has_filters %} filtered {% endif %}" id="changelist">
+            
 
-            {% block filters %}
+            {% comment %} {% block filters %}
                 {% if cl.has_filters %}
                 <div id="changelist-filter">
                     <h2>{% trans 'Filter' %}</h2>
@@ -99,7 +99,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-            {% endblock filters %}
+            {% endblock filters %} {% endcomment %}
 
             {% block date_hierarchy %}
                 {% date_hierarchy cl %}
@@ -116,7 +116,17 @@
                 {% endif %}
 
                 {% block result_list %}
-                    <div class="actions-and-paginator actions-and-paginator-top 
+                    {% block filters %}
+                    {% if cl.has_filters %}
+                    <div id="changelist-filter">
+                        <h2>{% trans 'Filter' %}</h2>
+                        {% for spec in cl.filter_specs %}
+                            {% admin_list_filter cl spec %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endblock filters %}
+                    {% comment %} <div class="actions-and-paginator actions-and-paginator-top 
                         {% if not cl.full_result_count %}
                             no-objects
                         {% endif %}">
@@ -124,7 +134,7 @@
                             {% admin_actions %}
                         {% endif %}
                         {% pagination cl %}
-                    </div>
+                    </div> {% endcomment %}
                     {% result_list cl %}
                     <div class="actions-and-paginator actions-and-paginator-bottom 
                         {% if not cl.full_result_count %}

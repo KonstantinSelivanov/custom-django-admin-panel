@@ -393,18 +393,14 @@ class UserTopMenu(BasicTopMenu):
                 url=reverse('%s:index' % admin_site_name),
                 description=_('Dashboard'),
             ),
-            UserTools(
-                css_styles='float: right;',
-                is_user_allowed=lambda user: user.is_staff,
-            ),
         ]
         if self.my_user_check(context.get('request').user):
             self.children += [
-                # AppList(
-                #     title=_('Applications'),
-                #     icon='fa-tasks',
-                #     exclude=('django.contrib.*',),
-                # ),
+                AppList(
+                    title=_('Applications'),
+                    icon='fa-tasks',
+                    exclude=('django.contrib.*',),
+                ),
                 AppList(
                     title=_('Administration'),
                     icon='fa-cog',

@@ -1,10 +1,10 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}{% load static %}
 
-{% comment %} {% block extrastyle %}
+{% block extrastyle %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/cms.css" %}" />
-{% endblock extrastyle %} {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />
+{% endblock extrastyle %}
 
 {% block bodyclass %}
     {{ block.super }} login
@@ -14,6 +14,8 @@
 
 {% block nav-global %}{% endblock nav-global %}
 
+{% block nav-sidebar %}{% endblock %}
+
 {% block content_title %}{% endblock content_title %}
 
 {% block breadcrumbs %}{% endblock breadcrumbs %}
@@ -22,9 +24,9 @@
 {% if form.errors and not form.non_field_errors %}
     <p class="errornote">
     {% if form.errors.items|length == 1 %}
-        {% trans "Please correct the error below." %}
+        {% translate "Please correct the error below." %}
     {% else %}
-        {% trans "Please correct the errors below." %}
+        {% translate "Please correct the errors below." %}
     {% endif %}
     </p>
 {% endif %}
@@ -37,7 +39,15 @@
     {% endfor %}
 {% endif %}
 
+{% if user.is_authenticated %}
 <div id="content-main">
+<p class="errornote">
+{% blocktranslate trimmed %}
+    You are authenticated as {{ username }}, but are not authorized to
+    access this page. Would you like to login to a different account?
+{% endblocktranslate %}
+</p>
+{% endif %}
     <form action="{{ app_path }}" method="post" id="login-form">
         {% csrf_token %}
         <fieldset class="module">
@@ -61,7 +71,7 @@
     {% url 'admin_password_reset' as password_reset_url %}
     {% if password_reset_url %}
         <div class="module password-reset-link">
-            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+            <a href="{{ password_reset_url }}">{% translate 'Forgotten your password or username?' %}</a>
         </div>
     {% endif %}
 
