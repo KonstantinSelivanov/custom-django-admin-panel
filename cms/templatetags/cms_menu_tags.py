@@ -35,7 +35,7 @@ def is_left_menu_enabled(parser, token):
     return IsMenuEnabledNode('left')
 
 
-@register.inclusion_tag('cms/menu/top_menu.html', takes_context=True)
+@register.inclusion_tag('admin/menu/top_menu.html', takes_context=True)
 def render_top_menu(context):
     """
     Отобразить веню сверху.
@@ -52,7 +52,7 @@ def render_top_menu(context):
     return context
 
 
-@register.inclusion_tag('cms/menu/left_menu.html', takes_context=True)
+@register.inclusion_tag('admin/menu/left_menu.html', takes_context=True)
 def render_left_menu(context):
     """
     Отобразить меню слева.
@@ -68,7 +68,7 @@ def render_left_menu(context):
     return context
 
 
-@register.inclusion_tag('cms/menu/menu_top_item.html', takes_context=True)
+@register.inclusion_tag('admin/menu/menu_top_item.html', takes_context=True)
 def render_menu_top_item(context, item, is_first, is_last):
     """
     Отобразить верхний пункт меню сверху.
@@ -89,7 +89,7 @@ def render_menu_top_item(context, item, is_first, is_last):
     return context
 
 
-@register.inclusion_tag('cms/menu/menu_item.html', takes_context=True)
+@register.inclusion_tag('admin/menu/menu_item.html', takes_context=True)
 def render_menu_item(context, item, is_first, is_last):
     """
     Отобразить пункт меню.
@@ -105,7 +105,7 @@ def render_menu_item(context, item, is_first, is_last):
     return context
 
 
-@register.inclusion_tag('cms/menu/user_tools.html', takes_context=True)
+@register.inclusion_tag('admin/menu/user_tools.html', takes_context=True)
 def render_user_tools(context, item, is_first, is_last):
     """
     Отобразить инструменты пользователя.

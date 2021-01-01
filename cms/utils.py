@@ -57,6 +57,8 @@ def get_admin_site(context):
         .get('admin_site')
     if admin_site:
         mod, inst = admin_site.rsplit('.', 1)
+        print(mod) 
+        print(inst)
         mod = import_module(mod)
         return getattr(mod, inst)
     else:

@@ -21,33 +21,33 @@ def render_custom_style(context):
         return ''
 
 
-class AreBreadcrumbsEnabledNode(template.Node):
-    """
-    Включен узел навигационной цепочки.
-    """
-    def are_breadcrumbs_enabled(admin_site_name='admin'):
-        """
-        Включены навигационной цепочки.
-        """
-        return get_cms_settings(admin_site_name).get('dashboard', {}) \
-            .get('breadcrumbs', True)
+# class AreBreadcrumbsEnabledNode(template.Node):
+#     """
+#     Включен узел навигационной цепочки.
+#     """
+#     def are_breadcrumbs_enabled(admin_site_name='admin'):
+#         """
+#         Включены навигационной цепочки.
+#         """
+#         return get_cms_settings(admin_site_name).get('dashboard', {}) \
+#             .get('breadcrumbs', True)
 
-    def render(self, context):
-        """
-        Отобразить.
-        """
-        context['are_breadcrumbs_enabled'] = self.are_breadcrumbs_enabled(
-            get_admin_site_name(context))
-        return ''
+#     def render(self, context):
+#         """
+#         Отобразить.
+#         """
+#         context['are_breadcrumbs_enabled'] = self.are_breadcrumbs_enabled(
+#             get_admin_site_name(context))
+#         return ''
 
 
-@register.tag(name='show_breadcrumbs')
-def show_breadcrumbs(parser, token):
-    """
-    Включить узел навигационной цепочки.
-    Отображается стандартная навигационная цепока.
-    """
-    return AreBreadcrumbsEnabledNode()
+# @register.tag(name='show_breadcrumbs')
+# def show_breadcrumbs(parser, token):
+#     """
+#     Включить узел навигационной цепочки.
+#     Отображается стандартная навигационная цепока.
+#     """
+#     return AreBreadcrumbsEnabledNode()
 
 
 @register.simple_tag(takes_context=True)

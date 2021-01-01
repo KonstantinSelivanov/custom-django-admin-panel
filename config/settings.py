@@ -13,10 +13,12 @@ import os  # +
 import sys  # +
 # from pathlib import Path
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent # -
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # +
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # +
 # sys.path.insert(0, os.path.join(BASE_DIR, '..'))  # +
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #+
@@ -27,6 +29,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # +
 # PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 # sys.path.insert(0, os.path.dirname(PROJECT_PATH))
 
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            os.pardir) + '/config/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -45,15 +49,16 @@ SITE_ID = 2
 # Application definition
 
 INSTALLED_APPS = [
-    'cms.apps.CmsConfig',
+    
 
-    'django.contrib.sites',  # +
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # +
+    'django.contrib.admin',
+    'cms.apps.CmsConfig',
 ]
 
 MIDDLEWARE = [
@@ -73,14 +78,17 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [os.path.join(BASE_DIR, 'templates')],  # +
-        'DIRS': [os.path.join(BASE_DIR, 'cms/templates'),],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
         # 'APP_DIRS': True,
         'OPTIONS': {
             # 'debug': DEBUG,
             'loaders': [
+                'cms.template.Loader',
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'cms.template.Loader',
+                
+                
             ],
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -132,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -146,9 +154,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/cms/static')
-STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, '/cms/static')
+# STATIC_URL = '/static/'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
+# For prod
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# STATIC_ROOT = 'config/static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 

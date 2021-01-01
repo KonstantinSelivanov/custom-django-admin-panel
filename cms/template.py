@@ -26,6 +26,7 @@ def get_app_template_dir(app_name):
 
 class Loader(FilesystemLoader):
     is_usable = True
+
     def get_template_sources(self, template_name, template_dirs=None):
         """
         Возвращает абсолютные пути к «template_name» в указанном приложении.

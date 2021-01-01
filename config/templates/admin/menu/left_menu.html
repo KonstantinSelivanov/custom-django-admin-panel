@@ -3,7 +3,7 @@
     <div id="adminmenuback"></div>
     <div id="adminmenuwrap">
         <ul id="adminmenu" class="cms-menu" role="navigation">
-            <li class="hide-if-no-js cms-menu-top cms-has-submenu cms-menu-not-open cms-no-url cms-menu-tools">
+            {% comment %} <li class="hide-if-no-js cms-menu-top cms-has-submenu cms-menu-not-open cms-no-url cms-menu-tools">
                 <div class="cms-menu-image">
                     <a aria-label="{% trans 'Menu options' %}" title="{% trans 'Menu options' %}" href="javascript:;">
                         <i class="fa fa-fw fa-cog"></i>
@@ -23,7 +23,7 @@
                         </ul>
                     </div>
                 </div>
-            </li>
+            </li> {% endcomment %}
             {% for item in menu.children %}
                 {% if item.is_user_tools %}
                     {% render_user_tools item forloop.first forloop.last %}

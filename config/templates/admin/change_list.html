@@ -1,7 +1,5 @@
-{% extends "admin/base_site.html" %}
-{% load i18n %}{% load admin_urls%}{% load static%}{% load admin_list%}{% load cms_tags %}
-
-{% block title %}{{ cl.opts.verbose_name_plural|capfirst }} | {% render_custom_title %}{% endblock title %}
+{% extends "admin:admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
 
 {% block extrastyle %}
   {{ block.super }}
