@@ -1141,68 +1141,14 @@ body.change-list #content h1 {
     justify-content: space-between;
 }
 
-#content #changelist .changelist-form-container {
-    flex: 1 1 auto;
-    min-width: 0;
-}
-
-#content #changelist table {
-    width: 100%;
-}
-
-.change-list .hiddenfields {
-    display: none;
-}
-
-.change-list .filtered table {
-    border-right: none;
-}
-
-.change-list .filtered {
-    min-height: 400px;
-}
-
-.change-list .filtered .results,
-.change-list .filtered .paginator,
-.filtered #toolbar,
-.filtered div.xfull {
-    width: auto;
-}
-
-.change-list .filtered table tbody th {
-    padding-right: 1em;
-}
-
-#content #changelist-form .results {
-    overflow-x: auto;
-    width: 100%;
-}
-
-#content #changelist .toplinks {
-    border-bottom: 1px solid #ddd;
-}
-
-#content #changelist .paginator {
-    color: #666;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-    overflow: hidden;
-}
-
 #content #changelist #toolbar {
-    /* background: none;
+    background: none;
     border: none;
     position: absolute;
     top: -37px;
     right: 0;
     margin: 0 !important;
-    padding: 0 */
-    padding: 8px 10px;
-    margin-bottom: 15px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    background: #f8f8f8;
-    color: #666;
+    padding: 0
 }
 
 #content #changelist #toolbar #changelist-search label {
@@ -1232,15 +1178,10 @@ body.change-list #content h1 {
 #content #changelist #changelist-filter {
     padding-top: 10px;
     position: static;
-    /* width: 100%; */
+    width: 100%;
     background: none;
     border: 0;
-    *zoom: 1;
-    order: 1;
-    width: 240px;
-    background: #f8f8f8;
-    border-left: none;
-    margin: 0 0 0 30px
+    *zoom: 1
 }
 
 #content #changelist #changelist-filter:before,

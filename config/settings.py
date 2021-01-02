@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os  # +
-import sys  # +
+# import sys  # +
 # from pathlib import Path
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,8 +49,6 @@ SITE_ID = 2
 # Application definition
 
 INSTALLED_APPS = [
-    
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -87,8 +85,6 @@ TEMPLATES = [
                 'cms.template.Loader',
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                
-                
             ],
             'context_processors': [
                 'django.template.context_processors.debug',

@@ -1,7 +1,7 @@
 {% extends "admin:admin/base_site.html" %}
 {% load i18n admin_urls static admin_list %}
 
-{% block extrastyle %}
+{% comment %} {% block extrastyle %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
   {% if cl.formset %}
@@ -16,7 +16,7 @@
       #changelist table thead th:first-child {width: inherit}
     </style>
   {% endif %}
-{% endblock %}
+{% endblock %} {% endcomment %}
 
 {% block extrahead %}
 {{ block.super }}
