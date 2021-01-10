@@ -1,11 +1,11 @@
 {% load admin_list %}{% load i18n %}
-<p class="paginator">
+<ul class="paginator pagination-sm">
 {% if pagination_required %}
     {% for i in page_range %}
         {% paginator_number cl i %}
     {% endfor %}
 {% endif %}
-<span class="total">
+<span class="total sr-only">
     {{ cl.result_count }}
     {% ifequal cl.result_count 1 %}
         {{ cl.opts.verbose_name }}
@@ -15,6 +15,6 @@
 </span>
 {% if show_all_url %}
     &nbsp;&nbsp;
-    <a href="{{ show_all_url }}" class="showall">{% trans 'Show all' %}</a>
+    <a href="{{ show_all_url }}"  class="page-link">{% trans 'Show all' %}</a>
 {% endif %}
-</p>
+</ul>

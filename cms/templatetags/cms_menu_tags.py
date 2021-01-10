@@ -65,6 +65,8 @@ def render_left_menu(context):
             'is_user_allowed': menu.is_user_allowed(
                 context.get('request').user),
         })
+    # print(context)
+        # print(menu)
     return context
 
 

@@ -1,8 +1,11 @@
 {% load i18n admin_urls %}
 {% block object-tools-items %}
-<li>
     {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
-    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
-</li>
+    <a href="{% add_preserved_filters history_url %}" class="btn btn-primary btn-icon-split">
+      <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+      </span>
+      <span class="text">{% translate "History" %}</span>
+    </a>
 {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% translate "View on site" %}</a></li>{% endif %}
 {% endblock %}

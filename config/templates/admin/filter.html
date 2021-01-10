@@ -1,11 +1,10 @@
 {% load i18n %}
-<div class="filter">
-    <h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
-    <ul>
-    {% for choice in choices %}
-        <li{% if choice.selected %} class="selected"{% endif %}>
-            <a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-</div>
+<button class="btn btn-secondary dropdown-toggle bg-gradient-primary mx-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}
+</button>
+<ul class="dropdown-menu">
+{% for choice in choices %}
+    <li{% if choice.selected %} class="selected"{% endif %}>
+    <a class="dropdown-item" href="{{ choice.query_string|iriencode }}" title="{{ choice.display }}">{{ choice.display }}</a></li>
+{% endfor %}
+</ul>

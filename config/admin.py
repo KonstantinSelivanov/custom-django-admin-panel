@@ -7,7 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 from cms.sites import UserSite
 from cms.services import MenuItem, UserLeftMenu
 from cms.utils import get_admin_site_name
-
+from blog.admin import CommentAdmin, PostAdmin
+from blog.models import Comment, Post
 
 admin = AdminSite(name='adminpanel')
 staff = AdminSite(name='staffpanel')
@@ -15,6 +16,8 @@ user = UserSite(name='userpanel')
 
 admin.register(User, UserAdmin)
 admin.register(Group, GroupAdmin)
+admin.register(Post, PostAdmin)
+# admin.register(Site, AdminSite)
 
 
 class UserLeftMenu(UserLeftMenu):
