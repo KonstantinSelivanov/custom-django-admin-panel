@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
     'taggit',
     'widget_tweaks',
+    'markdown',
 ]
 
 MIDDLEWARE = [
@@ -169,30 +170,3 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-CMS = {
-    'adminpanel': {
-        'admin_site': 'config.admin.admin',
-        'title': 'Django admin panel',
-        'menu': {
-            'top': 'cms.services.BasicTopMenu',
-            'left': 'cms.services.BasicLeftMenu',
-        },
-        'dashboard': {
-            'breadcrumbs': True,
-        },
-        'custom_style': STATIC_URL + 'cms/css/themes/blue.css',
-    },
-    'userpanel': {
-        'admin_site': 'config.admin.user',
-        'title': 'Django user panel',
-        'menu': {
-            'top': 'cms.services.UserTopMenu',
-            'left': 'config.admin.UserLeftMenu',
-        },
-        'dashboard': {
-            'breadcrumbs': True,
-        },
-        'custom_style': STATIC_URL + 'cms/css/themes/user.css',
-    },
-}

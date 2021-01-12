@@ -1,0 +1,31 @@
+{% extends "admin:admin/base.html" %}
+{% block sidebar1 %}
+{% if app_list %}
+                {% for app in app_list %}
+            <li class="nav-item">
+                
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>{% blocktranslate with name=app.name %} {{ name }} {% endblocktranslate %}</span>
+                </a>
+                {% comment %} <h6>{{app_list}}</h6> {% endcomment %}
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        {% comment %} {% if app_list %}
+                            {% for app in app_list %} {% endcomment %}
+                                {% for model in app.models %}
+                                    {% if model.admin_url %}
+                                    <a class="collapse-item" href="{{ model.admin_url }}"{% if model.admin_url in request.path %} aria-current="page"{% endif %}>{% translate model.name %}</a></th>
+                                    {% else %}
+                                    <a class="collapse-item" href="#">{{ model.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% comment %} {% endfor %}
+                        {% endif %} {% endcomment %}
+                    </div>
+                </div>
+                
+            </li>
+            {% endfor %}
+                {% endif %}
+{% endblock sidebar1 %}

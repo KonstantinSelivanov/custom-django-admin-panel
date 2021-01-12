@@ -1,6 +1,6 @@
 {% load i18n %}
 <button class="btn btn-secondary dropdown-toggle bg-gradient-primary mx-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}
+    {% blocktranslate with filter_title=title %} {{ filter_title }} {% endblocktranslate %}
 </button>
 <ul class="dropdown-menu">
 {% for choice in choices %}
