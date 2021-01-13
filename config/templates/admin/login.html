@@ -1,7 +1,6 @@
-{% extends "admin:admin/login_base.html" %}
-
+{% extends "admin/login_base.html" %}
 {% load i18n %} {% load widget_tweaks %}
-{% block content %}
+{% block login_content %}
     {% if form.errors and not form.non_field_errors %}
     <div class="alert alert-danger" role="alert">
         {% if form.errors.items|length == 1 %}
@@ -51,4 +50,4 @@
             </div>
         </div>
     </div>
-{% endblock content %}
+{% endblock login_content %}
