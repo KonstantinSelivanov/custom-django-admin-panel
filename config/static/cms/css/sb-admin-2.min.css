@@ -11636,23 +11636,23 @@ body.sidebar-toggled footer.sticky-footer {
 .viewlink,
 .inlineviewlink {
     padding-left: 16px;
-    background: url(../img/icon-viewlink.svg) 0 1px no-repeat;
+    background: url(../img/icon/icon-viewlink.svg) 0 1px no-repeat;
 }
 
 .addlink {
     padding-left: 16px;
-    background: url(../img/icon-addlink.svg) 0 1px no-repeat;
+    background: url(../img/icon/icon-addlink.svg) 0 1px no-repeat;
 }
 
 .changelink,
 .inlinechangelink {
     padding-left: 16px;
-    background: url(../img/icon-changelink.svg) 0 1px no-repeat;
+    background: url(../img/icon/icon-changelink.svg) 0 1px no-repeat;
 }
 
 .deletelink {
     padding-left: 16px;
-    background: url(../img/icon-deletelink.svg) 0 1px no-repeat;
+    background: url(../img/icon/icon-deletelink.svg) 0 1px no-repeat;
 }
 
 a.deletelink:link,
@@ -11740,7 +11740,7 @@ table thead th.sorted .sortoptions a {
     width: 12px;
     height: 12px;
     display: inline-block;
-    background: url(../img/sorting-icons.svg) 0 0 no-repeat;
+    background: url(../img/icon/sorting-icons.svg) 0 0 no-repeat;
     background-size: 12px auto;
 }
 

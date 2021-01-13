@@ -12,19 +12,17 @@
 {% block nav-sidebar %}{% endblock %}
 
 {% block content %}
-{% comment %} <div id="content-main"> {% endcomment %}
   {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
-{% comment %} </div> {% endcomment %}
 {% endblock %}
 
 {% block sidebar %}
 <div class="col-xl-4 col-lg-5">
-<div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="recent-actions-module">
-        <h6 class="m-0 font-weight-bold text-primary">{% translate 'Recent actions' %}</h6>
-    </div>
-        <!-- Card Body -->
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="recent-actions-module">
+            <h6 class="m-0 font-weight-bold text-primary">{% translate 'Recent actions' %}</h6>
+        </div>
+            <!-- Card Body -->
         <div class="card-body">
             {% comment %} <h3>{% translate 'My actions' %}</h3> {% endcomment %}
             {% load log %}
@@ -50,6 +48,5 @@
             {% endif %}
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
