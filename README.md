@@ -31,3 +31,37 @@ TEMPLATES = [
       },
       },
 ]
+
+# Пользовательская панель администратора django.
+
+## Описание
+Имеет удобный пользовательский интерфейс основанный на Bootstarap 4. Имеет структуру django admin panel с возможностью дальнейшего расширения. 
+
+### Скриншоты
+
+#### Подключение
+
+Пользовательская панель администратора django является отеделным django приложением. 
+
+Настройки в settings.py 
+
+INSTALLED_APPS = [
+...
+'cms.apps.CmsConfig',
+] 
+
+...
+
+TEMPLATES = [
+    {
+'OPTIONS': {
+            # 'debug': DEBUG,
+            'loaders': [
+                'cms.template.Loader', # Загрузчик шаблонов
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+           ],
+          ...
+      },
+      },
+]
